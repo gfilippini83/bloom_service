@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const streamerRoutes = require('./server/routes/streamerRouter');
 const baseInfoRoutes = require('./server/routes/baseInfoRouter');
 
-mongoose.connect(`npm `);
+mongoose.connect(`mongodb://${process.env.MONGO_USR}:${process.env.MONGO_PWD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/bloom?authSource=admin`);
 
 
 const app = express()
