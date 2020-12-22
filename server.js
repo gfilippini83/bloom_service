@@ -22,18 +22,19 @@ app.use('/api/base-info', baseInfoRoutes);
 // streamerRoutes.initialize(app)
 
 
-// https.createServer({
-//   key: fs.readFileSync('server.key'),
-//   cert: fs.readFileSync('server.cert')
-// }, app)
-// .listen(4201, function () {
-//   console.log('Example app listening on port 3000! Go to https://localhost:3000/')
-// })
+https.createServer({
+  key: fs.readFileSync('./streambloomtest_com/server.key'),
+  cert: fs.readFileSync('./streambloomtest_com/streambloomtest_com.crt'),
+  ca: fs.readFileSync('./streambloomtest_com/streambloomtest_com.ca-bundle')
+}, app)
+.listen(4201, function () {
+  console.log('Example app listening on port 4201! Go to https://localhost:4201/')
+})
 
-app.listen(4201, (err) => {
-  if (err) {
-    return console.log(err);
-  }
+// app.listen(4201, (err) => {
+//   if (err) {
+//     return console.log(err);
+//   }
 
-  return console.log('My Node App listening on port 4201');
-});
+//   return console.log('My Node App listening on port 4201');
+// });
